@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chocolate Ordering Page</title>
+    <link rel="stylesheet" href="{% static 'CSS/main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body onclick="closeCartOnClick(event)">
+    <header>
+        <div class="logo">
+    <a href="{% url 'index' %}">
+        <img src="{% static 'logo_svg.svg' %}" alt="Logo">
+    </a>
+</div>
+
+        <div class="cart-icon" onclick="toggleCart(event)">🛒</div>
+    </header>
+    <main>
+        {% for chocolate in chocolates %}
+        <div class="chocolate-card">
+            <img src="{{ chocolate.image }}" alt="{{ chocolate.name }}">
+            <h2>{{ chocolate.name }}</h2>
+            <p>₹{{ chocolate.price }}</p>
+            <div class="quantity-selector">
+                <button onclick="decreaseQuantity(this)">-</button>
+                <span class="quantity">0</span>
+                <button onclick="increaseQuantity(this)">+</button>
+            </div>
+            <button onclick="addToCart(this)">Add to Cart</button>
+        </div>
+        {% endfor %}
+    </main>
+    <div class="cart">
+        <div class="cart-header">
+            <button class="close-cart" onclick="toggleCart(event)"><i class="fas fa-times"></i></button>
+            <h2 class="cart-title">Your Cart</h2>
+            
+        </div>
+        <div class="cart-items">
+            <p class="empty-message">The cart is empty</p>
+        </div>
+        <div class="cart-total">
+            <p>Total: ₹<span id="cart-total-amount">0</span></p>
+        </div>
+        <button class="proceed-checkout" onclick="proceedToCheckout()">Proceed to Checkout</button>
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <p>Added to cart!</p>
+            <button onclick="closeModal()">Close</button>
+        </div>
+    </div>
+    <script src="{% static 'assets/js/script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,408 @@
+`{% load static %}
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
+    
+            <!--=============== REMIXICONS ===============-->
+            <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+            <link 
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+            integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+                crossorigin="anonymous"/>
+            
+            <!--=============== SWIPER CSS ===============-->
+            <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.min.css' %}">
+            <!--=============== CSS ===============-->
+            <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+    
+            <!--=============== JS ===============-->   
+            <script src="{% static 'JS/jquery-3.5.1.min.js' %}"></script>
+            <script src="{% static 'JS/multislider.min.js' %}"></script>
+            <title>MoodFlip</title>
+        </head>
+       
+    <body>
+        <div class="loading-overlay">
+            <div class="loading-container">
+              <div class="moodflip-text" id="typed-text"></div>
+            </div>
+          </div>
+          
+          
+
+        <main class="main">
+            <header class="header" id="header">
+                <nav class="nav container">
+                  <!-- <a href="#" class="nav__logo"><img src="assets/img/Untitled design.png"></a> -->
+                  <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                      <li class="nav__item">
+                        <a href="#home" class="nav__link active-link">Home</a>
+                      </li>
+                      <li class="nav__item">
+                        <a href="#order" class="nav__link">Order</a>
+                      </li>
+                      <li class="nav__item">
+                        <a href="#about" class="nav__link">About</a>
+                      </li>
+                      <li class="nav__item">
+                        <a href="#blogs" class="nav__link">Blogs</a>
+                      </li>
+                      <li class="nav__item">
+                        <a href="#experience" class="nav__link">Contact</a>
+                      </li>
+                    </ul>
+                    <span class="nav__close" id="nav-close">&times;</span>
+                  </div>
+                  
+                  <div class="nav__dark">
+                    <span class="change-theme-name"></span>
+                    <i class="ri-moon-line change-theme" id="theme-button" style="display:none;"></i>
+                  </div>
+                  
+                  <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-function-line"></i>
+                  </div>
+                </nav>
+              </header>
+
+              
+            
+              <section class="home" id="home">
+                <div class="container1">
+                    <div class="bar2">
+                        <h1>with <span>Your Text Here</span></h1>
+                    </div>
+                    <div class="bar3">
+                        <h2>
+                            <span class="custom-font">We</span>
+                            <span class="different-font">bring</span>
+                            <span class="custom-font">to you</span>
+                        </h2>
+                    </div>
+                    <div class="bar4">
+                        <h2>
+                            <img src="{% static 'logo_svg.svg' %}" alt="" class="discover__img">
+                            <br>
+                            MANIFEST YOUR MOOD
+                        </h2>
+                    </div> 
+                    <div class="bottom-text">
+                        <h2>
+                            <span class="custom-font">Let Moodflip bring you</span>
+                            <span class="different-font">delicious comfort</span>
+                            <span class="custom-font">during periods.</span>
+                        </h2>
+                    </div>
+                    <div class="order-button-container">
+                        <a href="{% url 'order' %}" class="orderbutton">Order Now</a>
+                    </div>
+                </div>
+            </section>
+            
+
+            <!--==================== DISCOVER ====================-->
+        <section class="discover section" id="order">
+            <h2 class="section__title">Enjoy a delicious range of <br>flavours</h2>
+            <div class="discover__container container swiper-container">
+                <div class="swiper-wrapper">
+                    <!--==================== DISCOVER 2 ====================-->
+                    <div class="discover__card swiper-slide">
+                        <img src="{% static 'assets/img/cranberry.png' %}" alt="" class="discover__img">
+                    </div>
+                    <!--==================== DISCOVER 1 ====================-->
+                    <div class="discover__card swiper-slide">
+                        <img src="{% static 'assets/img/general.png' %}" alt="" class="discover__img">
+                    </div>
+                    <!--==================== DISCOVER 3 ====================-->
+                    <div class="discover__card swiper-slide">
+                        <img src="{% static 'assets/img/general.png' %}" alt="" class="discover__img">
+                    </div>
+                    <!--==================== DISCOVER 4 ====================-->
+                    <div class="discover__card swiper-slide">
+                        <img src="{% static 'assets/img/general.png' %}" alt="" class="discover__img">
+                    </div>
+                </div>
+                <a href="order.html" class="orderbutton">Order Now</a>
+            </div>
+        </section>
+
+           <!--==================== Recognition ====================-->
+            <section id="recognition">
+                <h2 class="recog">Recognition</h2>
+                <div class="r">
+                    <div class="text">
+                        <p>
+                           Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, fugit quidem veniam saepe totam rerum, ipsum architecto eligendi amet distinctio beatae asperiores delectus? Libero eius autem quam harum perferendis laudantium quibusdam perspiciatis, temporibus in veniam vitae. Doloribus eaque libero nesciunt commodi quae optio in maiores rerum laborum rem. Vero, neque aspernatur. Obcaecati, hic. Quos atque perferendis eius consequuntur provident doloribus id veritatis iure facere, mo
+                        </p>
+                        <!-- <a href="order.html" class="rbutton">View More</a> -->
+                    </div>
+                    <div class="image">
+                        <img src="{% static 'assets/img/SmritiIrani.png' %}" alt="Recognition Image">
+                    </div>
+                </div>
+                <!-- <div class="interactive-content">
+                    <div class="testimonial">
+                        <blockquote>
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero in lacus viverra
+                            consectetur."
+                            <cite>John Doe, CEO at Company XYZ</cite>
+                        </blockquote>
+                    </div>
+                    <div class="timeline">
+                        <h3>Our Journey to Recognition</h3>
+                        <ul>
+                            <li>Year 1: Achieved milestone A</li>
+                            <li>Year 2: Recognized for innovation</li>
+                            <li>Year 3: Awarded for community service</li>
+                        </ul>
+                    </div>
+                </div> -->
+            </section>
+
+             <!--==================== TESTIMONIALS ====================-->
+            <!-- <section  class="containers">
+                <h2>Testimonials</h2>
+                <div class="cards__containers swiper">
+                   <div class="cards__contents">
+                      <div class="swiper-wrapper">
+                         <article class="cards__article swiper-slide">  
+                            <div class="cards__data">
+                               <h3 class="cards__name">Aryan Tripathi</h3>
+                               <p class="cards__description">
+                                  "Aaryan Tripathi is a young entrepreneur reshaping the business world,his vision behind 'Adymize'..."
+                               </p>
+                            </div>
+                         </article>
+                         <article class="cards__article swiper-slide">  
+                            <div class="cards__data">
+                               <h3 class="cards__name">Aryan Tripathi</h3>
+                               <p class="cards__description">
+                                  "Aaryan Tripathi is a young entrepreneur reshaping the business world,his vision behind 'Adymize'..."
+                               </p>
+                            </div>
+                         </article>
+                         <article class="cards__article swiper-slide">  
+                            <div class="cards__data">
+                               <h3 class="cards__name">Aryan Tripathi</h3>
+                               <p class="cards__description">
+                                  "Aaryan Tripathi is a young entrepreneur reshaping the business world,his vision behind 'Adymize'..."
+                               </p>
+                            </div>
+                         </article>
+
+
+                      </div>
+                   </div>
+  
+                 
+                <div class="swiper-button-next">
+                   <i class="ri-arrow-right-s-line"></i>
+                </div>
+                
+                <div class="swiper-button-prev">
+                   <i class="ri-arrow-left-s-line"></i>
+                </div>
+          
+ 
+                <div class="swiper-pagination"></div>
+             </div>   
+          </section>  -->
+            
+          <section class="about section" id="about">
+            <div class="about__container container grid">
+                <div>
+                    <h2 class="section__title about__title">More Information About<br>MoodFlip</h2>
+                    <div class="about__content">
+                        <p class="about__description">
+                            Introducing Moodflip – Your Comfort, Your Chocolate We understand periods can be challenging, but we're here to change that. At Moodflip, we've created a special solution for you. Life brings periods, sometimes with discomfort. Traditional options like medication or unhealthy chocolates aren't ideal. Enter Moodflip – your partner in easing period discomfort. Our team crafted herb-infused dark chocolates, a delightful and beneficial treat. Choose from classic, cranberry, butterscotch, or nuts for a more comfortable period. Beyond addressing pain, Moodflip chocolates are a delightful treat for everyone. Indulge in chocolaty goodness for a mood lift. Say goodbye to period blues and hello to a sweeter, more enjoyable experience with Moodflip. Join us on this delectable journey, and let's flip the mood together!
+                            <br><br>
+                            <b><b>Indulge in the goodness. Choose Moodflip.</b></b>
+                        </p>
+                        <div class="about__img">
+                            <div class="about__img-overlay">
+                                <img src="{% static 'assets/img/home2.jpg' %}" alt="" class="about__img-one">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+            <section class="experience section" >
+                <div class="experience1">
+                    <h2 class="section__title">Enjoy our refined & years-honed service</h2>
+        
+                    <div class="experience__container container grid">
+                        <div class="experience__content grid">
+                            <div class="experience__data">
+                                <h2 class="experience__number">2</h2>
+                                <span class="experience__description">Year <br> Experience</span>
+                            </div>
+        
+                            <div class="experience__data">
+                                <h2 class="experience__number">75</h2>
+                                <span class="experience__description">Complete <br> orders</span>
+                            </div>
+        
+                            <div class="experience__data">
+                                <h2 class="experience__number">650+</h2>
+                                <span class="experience__description">Happy <br> Customers</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            
+
+            
+
+            <!--==================== VIDEO ====================-->
+            <section class="video section" id ="video">
+                <h2 class="section__title">Video Tour</h2>
+
+                <div class="video__container container">
+                    <p class="video__description">Find out more with our video of the most beautiful and 
+                        pleasant places for you and your family.
+                    </p>
+
+                    <div class="video__content">
+                        <video id="video-file">
+                            <source src="assets/video/COMING SOON.mp4" type="video/mp4">
+                        </video>
+
+                        <button class="button button--flex video__button" id="video-button">
+                            <i class="ri-play-line video__button-icon" id="video-icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </section>
+        
+
+            <!--==================== SUBSCRIBE ====================-->
+            <section class="subscribe section" id="contact">
+                <div class="subscribe__bg">
+                    <div class="subscribe__container container">
+                        <h2 class="section__title subscribe__title">Subscribe Our <br> Newsletter</h2>
+                        <p class="subscribe__description">Subscribe to our newsletter and get a 
+                            special discount.
+                        </p>
+
+                        <form action="" class="subscribe__form">
+                            <input type="text" placeholder="Enter email" class="subscribe__input">
+                            <button class="button">
+                                Subscribe
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!--==================== SPONSORS ====================-->
+            <!-- <section class="sponsor section" id="sponsor">
+                <h2 class="section__title">We are also available at!</h2>
+                <div class="sponsor__container container grid">
+                    
+                    <div class="sponsor__content">
+                        <img src="assets/img/sponsors2.png" alt="" class="sponsor__img">
+                    </div>
+                    
+                    
+                </div>
+            </section> -->
+        </main>
+
+        <!--==================== FOOTER ====================-->
+        <footer class="footer section">
+            <div class="footer__container container grid">
+                <div class="footer__content grid">
+                    <div class="footer__data">
+                        <h3 class="footer__title">MoodFlip</h3>
+                        <p class="footer__description">Manifest Your<br>Mood.
+                        </p>
+                        <div>
+                            <a href="https://www.facebook.com/" target="_blank" class="footer__social">
+                                <i class="ri-facebook-box-fill"></i>
+                            </a>
+                            <a href="https://twitter.com/" target="_blank" class="footer__social">
+                                <i class="ri-twitter-fill"></i>
+                            </a>
+                            <a href="https://instagram.com/moodflip_?igshid=MzRlODBiNWFlZA==" target="_blank" class="footer__social">
+                                <i class="ri-instagram-fill"></i>
+                            </a>
+                            <a href="https://www.youtube.com/" target="_blank" class="footer__social">
+                                <i class="ri-youtube-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer__data">
+                        <h3 class="footer__subtitle">Company</h3>
+                        <ul>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">About Us</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Features</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">News & Blog</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__data">
+                        <h3 class="footer__subtitle">Support</h3>
+                        <ul>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">FAQs</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Support Center</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer__rights">
+                    <p class="footer__copy">&#169; 2023 MoodFlip. All rights reserved.</p>
+                    <div class="footer__terms">
+                        <a href="#" class="footer__terms-link">Terms & Agreements</a>
+                        <a href="#" class="footer__terms-link">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        
+
+         <!--========== SCROLL UP ==========-->
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class="ri-arrow-up-line scrollup__icon"></i>
+        </a>
+        <!--=============== SCROLL REVEAL===============-->
+        <script src="{% static 'assets/js/scrollreveal.min.js' %}"></script>    
+        <!--=============== SWIPER JS ===============-->
+        <script src="{% static 'assets/js/swiper-bundle.min.js' %}"></script>    
+        <!--=============== MAIN JS ===============-->
+        <script src="{% static 'assets/js/main.js' %}"></script>
+        <script src="{% static 'assets/js/swipe.js' %}"></script>
+    
+        
+        <!--=============== CART JS ===============-->
+        <script src="{% static 'JS/script1.js' %}"></script>
+        <script src="{% static 'JS/shopping-cart.js' %}"></script>
+    </body>
+</html>
+
+        
