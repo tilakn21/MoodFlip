@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'website1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': os.environ.get('MONGO_DB_NAME', 'MoodFlip'),
+        'NAME': os.environ.get('MONGO_DB_NAME', 'moodflip'),
         'ENFORCE_SCHEMA': False,
         'CLIENT': {
             'host': os.environ.get('DATABASE_URL', 'mongodb://localhost:27017'),
