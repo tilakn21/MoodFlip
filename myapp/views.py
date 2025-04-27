@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponseServerError
 from .models import Chocolate
 
 def index(request):
@@ -8,9 +9,10 @@ def index(request):
 #     return render(request, 'order.html')
 
 def order_page(request):
-    chocolates = Chocolate.objects.all()  # Retrieve all chocolates from MongoDB
-    if chocolates:
-        print("Data retrieved successfully")
-    else:
-        print("No data found")
+    try:
+        chocolates = Chocolate.objects.all()
+        print("Chocolates:", list(chocolates))
+    except Exception as e:
+        print("DB ERROR:", e)
+        return HttpResponseServerError("Database connection error: " + str(e))
     return render(request, 'order.html', {'chocolates': chocolates})
