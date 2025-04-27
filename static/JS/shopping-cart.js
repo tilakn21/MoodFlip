@@ -101,3 +101,84 @@ parentElement.addEventListener('click', (e) => { // Last
 });
 
 updateShoppingCartHTML();
+
+// --- Cart Drawer Logic ---
+function toggleCartDrawer() {
+	const drawer = document.getElementById('cart-drawer');
+	const overlay = document.getElementById('cart-drawer-overlay');
+	drawer.classList.toggle('open');
+	overlay.classList.toggle('open');
+}
+
+// --- Quantity Selector Logic & Cart ---
+let cart = JSON.parse(localStorage.getItem('moodflip_cart') || '{}');
+
+function updateCartBadge() {
+	const badge = document.getElementById('cart-badge');
+	let count = 0;
+	for (const id in cart) count += cart[id].qty;
+	badge.textContent = count;
+}
+
+function changeQty(btn, delta) {
+	const card = btn.closest('.choco-card');
+	const qtyNum = card.querySelector('.qty-num');
+	let qty = parseInt(qtyNum.textContent);
+	let stock = parseInt(card.getAttribute('data-choco-qty'));
+	qty = Math.max(0, Math.min(qty + delta, stock));
+	qtyNum.textContent = qty;
+	// Update cart live
+	const chocoId = card.getAttribute('data-choco-id');
+	const name = card.getAttribute('data-choco-name');
+	const price = parseFloat(card.getAttribute('data-choco-price'));
+	const img = card.getAttribute('data-choco-img');
+	if (!cart[chocoId]) cart[chocoId] = { name, price, img, qty: 0 };
+	cart[chocoId].qty = qty;
+	if (qty === 0) delete cart[chocoId];
+	localStorage.setItem('moodflip_cart', JSON.stringify(cart));
+	updateCartBadge();
+	renderCartDrawer();
+}
+
+function renderCartDrawer() {
+	const content = document.getElementById('cart-drawer-content');
+	content.innerHTML = '';
+	let total = 0, hasItems = false;
+	for (const id in cart) {
+		if (cart[id].qty > 0) {
+			hasItems = true;
+			total += cart[id].qty * cart[id].price;
+			content.innerHTML += `
+			<div class="cart-item">
+				<img src="${cart[id].img}" class="cart-item-img" alt="${cart[id].name}">
+				<div class="cart-item-info">
+					<div class="cart-item-name">${cart[id].name}</div>
+					<div class="cart-item-price">₹${cart[id].price} × ${cart[id].qty}</div>
+				</div>
+				<button class="cart-item-remove" onclick="removeFromCart('${id}')"><i class="ri-delete-bin-6-line"></i></button>
+			</div>`;
+		}
+	}
+	if (!hasItems) content.innerHTML = '<div class="cart-empty">Your cart is empty</div>';
+	document.getElementById('cart-total').textContent = '₹' + total;
+}
+
+function removeFromCart(id) {
+	if (cart[id]) { delete cart[id]; localStorage.setItem('moodflip_cart', JSON.stringify(cart)); updateCartBadge(); renderCartDrawer(); document.querySelector(`.choco-card[data-choco-id='${id}'] .qty-num`).textContent = 0; }
+}
+
+function proceedToCheckout() {
+	alert('Checkout functionality coming soon!');
+}
+
+// --- On Load ---
+updateCartBadge();
+renderCartDrawer();
+
+// Sync card quantities with cart
+document.addEventListener('DOMContentLoaded', function() {
+	for (const id in cart) {
+		const card = document.querySelector(`.choco-card[data-choco-id='${id}']`);
+		if (card) card.querySelector('.qty-num').textContent = cart[id].qty;
+	}
+});

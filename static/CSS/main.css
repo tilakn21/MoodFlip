@@ -283,3 +283,45 @@ main {
         width: 30%; /* Adjusted logo size for smaller screens */
     }
 }
+
+body { background: hsl(0, 73%, 4%); }
+.sticky-topbar { position: sticky; top: 0; z-index: 100; background: #ffecdd; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 2rem; }
+.topbar-logo img { height: 48px; }
+.topbar-cart { position: relative; cursor: pointer; }
+.topbar-cart i { font-size: 2rem; color: #f5853f; }
+.cart-badge { position: absolute; top: -8px; right: -8px; background: #f5853f; color: #fff; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; font-weight: bold; }
+.main-title { color: #f5853f; font-size: 2.5rem; text-align: center; margin: 2rem 0 1rem; font-family: 'HelveticaNowDisplay-Bold',sans-serif; letter-spacing: 2px; }
+.choco-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; background: transparent; }
+.choco-card { background: #ffecdd; border-radius: 1.5rem; box-shadow: 0 4px 24px rgba(0,0,0,0.08); display: flex; flex-direction: column; align-items: center; padding: 1.5rem 1rem; transition: box-shadow 0.2s, transform 0.2s; position: relative; color: #2d1400; }
+.choco-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.14); transform: translateY(-4px) scale(1.02); }
+.choco-img { width: 120px; height: 120px; object-fit: cover; border-radius: 1rem; margin-bottom: 1rem; background: #f7f7f7; }
+.choco-name { color: #f5853f; font-size: 1.3rem; font-weight: bold; margin-bottom: 0.3rem; text-align: center; }
+.choco-price { color: #2d1400; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.2rem; }
+.choco-qty { color: #a67c52; font-size: 0.95rem; margin-bottom: 0.5rem; }
+.choco-desc { color: #555; font-size: 0.98rem; margin-bottom: 1rem; text-align: center; min-height: 32px; }
+.qty-selector { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+.qty-btn { background: #f5853f; color: #fff; border: none; border-radius: 50%; width: 32px; height: 32px; font-size: 1.2rem; cursor: pointer; transition: background 0.2s; }
+.qty-btn:disabled { background: #ffd1a6; color: #fff; cursor: not-allowed; }
+.qty-num { color: #2d1400; font-size: 1.1rem; min-width: 24px; text-align: center; }
+.cart-drawer-overlay { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.25); z-index: 200; }
+.cart-drawer { position: fixed; top: 0; right: -420px; width: 370px; height: 100vh; background: #ffecdd; box-shadow: -4px 0 24px rgba(0,0,0,0.13); z-index: 201; transition: right 0.3s; display: flex; flex-direction: column; color: #2d1400; }
+.cart-drawer.open { right: 0; }
+.cart-drawer-overlay.open { display: block; }
+.cart-drawer-header { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 1.5rem 1rem; border-bottom: 1px solid #f2f2f2; }
+.cart-drawer-title { color: #f5853f; font-size: 1.3rem; font-weight: bold; }
+.cart-drawer-close { background: none; border: none; font-size: 1.7rem; color: #2d1400; cursor: pointer; }
+.cart-drawer-content { flex: 1; overflow-y: auto; padding: 1.2rem 1.5rem; }
+.cart-empty { color: #aaa; text-align: center; margin-top: 2rem; font-size: 1.1rem; }
+.cart-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; }
+.cart-item-img { width: 54px; height: 54px; object-fit: cover; border-radius: 0.7rem; background: #f7f7f7; }
+.cart-item-info { flex: 1; }
+.cart-item-name { color: #f5853f; font-size: 1.05rem; font-weight: 600; }
+.cart-item-price { color: #2d1400; font-size: 1rem; }
+.cart-item-qty { color: #888; font-size: 0.95rem; }
+.cart-item-remove { background: none; border: none; color: #e74c3c; font-size: 1.2rem; cursor: pointer; margin-left: 0.5rem; }
+.cart-drawer-footer { border-top: 1px solid #f2f2f2; padding: 1.2rem 1.5rem; }
+.cart-total-row { display: flex; align-items: center; justify-content: space-between; font-size: 1.1rem; margin-bottom: 1rem; }
+.cart-checkout-btn { width: 100%; background: #f5853f; color: #fff; border: none; border-radius: 2rem; padding: 0.9rem 0; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+.cart-checkout-btn:hover { background: #2d1400; }
+@media (max-width: 900px) { .cart-drawer { width: 100vw; max-width: 100vw; } }
+@media (max-width: 600px) { .main-title { font-size: 1.5rem; } .choco-grid { gap: 1rem; padding: 1rem 0.2rem; } .cart-drawer { width: 100vw; } }
