@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-+39_pc0$=5+4t7z0lzy2$km5200($&jwlado-5^dg6gt!x!+38'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-+39_pc0$=5+4t7z0lzy2$km5200($&jwlado-5^dg6gt!x!+38')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DJANGO_DEBUG', '') == '1'
 
-ALLOWED_HOSTS = ['127.0.0.1','.vercel.app']
+ALLOWED_HOSTS = ['127.0.0.1', '.onrender.com', '.vercel.app', 'localhost']
 
 
 # Application definition
@@ -77,12 +77,11 @@ WSGI_APPLICATION = 'website1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'MoodFlip',  # MongoDB database name
+        'NAME': os.environ.get('MONGO_DB_NAME', 'MoodFlip'),
         'ENFORCE_SCHEMA': False,
         'CLIENT': {
-            'host': 'localhost',  # or your MongoDB host
-            'port': 27017,        # default MongoDB port
-        }
+            'host': os.environ.get('DATABASE_URL', 'mongodb://localhost:27017'),
+        },
     }
 }
 
@@ -121,11 +120,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-
 
 
 # Default primary key field type
