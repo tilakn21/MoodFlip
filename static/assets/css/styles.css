@@ -947,8 +947,8 @@ h2 {
 }
 
 .about__title {
-  font-size: 2.5rem; /* Adjust font size */
-  margin-bottom: 1rem; /* Add margin bottom for spacing */
+  font-size: 3rem; /* Increased from 2.5rem */
+  margin-bottom: 1.2rem;
   color: #7a3626;
 }
 
@@ -960,9 +960,11 @@ h2 {
 }
 
 .about__description {
-  text-align: center; /* Center align text content */
-  margin-bottom: 2rem; /* Add margin bottom for spacing */
+  text-align: center;
+  margin-bottom: 2rem;
   width: 50%;
+  font-size: 1.25rem; /* Increased from default, for better readability */
+  line-height: 1.7;
 }
 
 .about__img {
@@ -1004,7 +1006,7 @@ h2 {
   
   }
   .about__title {
-    font-size: 100%;
+    font-size: 2rem;
   }
 
   .about__content {
@@ -1016,7 +1018,7 @@ h2 {
   .about__description {
     width: 100%; /* Full width on smaller screens */
     margin-bottom: 1.5rem; /* Adjusted margin */
-    font-size: 60%;
+    font-size: 1rem;
   }
 
   .about__img {

@@ -1,4 +1,4 @@
-`{% load static %}
+{% load static %}
 <!DOCTYPE html>
     <html lang="en">
         <head>
@@ -127,7 +127,9 @@
                         <img src="{% static 'assets/img/general.png' %}" alt="" class="discover__img">
                     </div>
                 </div>
-                <a href="{% url 'order' %}" class="orderbutton">Order Now</a>
+                <div class="order-button-container">
+                    <a href="{% url 'order' %}" class="orderbutton">Order Now</a>
+                </div>
             </div>
         </section>
 
